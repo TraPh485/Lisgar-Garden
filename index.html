@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lisgar Garden</title>
+   <link rel="stylesheet" href="styles.css">
+   <!--Import 2 used fonts from Google-->
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+    </style>
+</head>
+<body>
+    <!--Make the navigation bar and Hero image -->
+    <section id="main-page">
+        <div class="container"> <!--Create the div container to wrap all the contain that first appears on the homepage-->
+            <nav class="navbar"> <!--Wrap the navigation bar-->
+                <!-- Text Logo with the link to homepage -->
+                <label class='logo'> 
+                    <a href="index.html">Lisgar Garden</a>
+                </label>
+                <!--navigation links with 4 main sections, each includes the link to that page-->
+                <ul class="nav-section">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="plan.html">Plan</a></li>
+                </ul>
+                <!--Hamburger menu icon to use for responsive mobile screen-->
+                <img src="./images/menu icon.svg" alt="menu icon" class="menu-btn"/>
+            </nav>
+            <!--Wrap hero section content-->
+            <div class="hero-content">
+                <!--Set specific class for each one to customize them specifically-->
+                <h1 class="Intro">Welcome to</h1>
+                <h1 class="Title">Lisgar Garden</h1>
+                <p class="hero-text">The Nature's Hidden Gem - Where Tranquility Blooms </p>
+            </div>
+        </div>
+    </section>
+
+<!--Image Gallery-->
+<!--I followed the tutorial from This video: https://www.youtube.com/watch?v=2l99ERCnB9c&t=375s-->
+    <section id="Gallery">
+        <!--Gallery Heading and descriptive text-->
+        <h2>GALLERY</h2>
+        <!--Horizontal images for infinite scrolling-->
+        <div class="scroll-img" style="--t:30s"> <!--Using CSS Variable to set scrolling speed-->
+            <!--I set 3 sets of images to ensure it scrolls continously and endlessly-->
+            <div class="image-list">
+                <img src="./images/slider1.jpg" alt="img1"/> 
+                <img src="./images/slider2.jpg" alt="img2"/>
+                <img src="./images/slider3.jpg" alt="img3"/>
+                <img src="./images/slider4.jpg" alt="img4"/>
+                <img src="./images/slider5.jpg" alt="img5"/>
+                <img src="./images/slider6.jpg" alt="img6"/>
+                <img src="./images/slider7.jpg" alt="img7"/>
+            </div>
+            <div class="image-list">
+                <img src="./images/slider1.jpg" alt="img1"/>
+                <img src="./images/slider2.jpg" alt="img2"/>
+                <img src="./images/lisgar-3.jpg" alt="img3"/>
+                <img src="./images/lisgar-4.jpg" alt="img4"/>
+                <img src="./images/slider5.jpg" alt="img5"/>
+                <img src="./images/slider6.jpg" alt="img6"/>
+                <img src="./images/slider7.jpg" alt="img7"/>
+            </div>
+            <div class="image-list">
+                <img src="./images/slider1.jpg" alt="img1"/>
+                <img src="./images/slider2.jpg" alt="img2"/>
+                <img src="./images/slider3.jpg" alt="img3"/>
+                <img src="./images/slider4.jpg" alt="img4"/>
+                <img src="./images/slider5.jpg" alt="img5"/>
+                <img src="./images/slider6.jpg" alt="img6"/>
+                <img src="./images/slider7.jpg" alt="img7"/>
+            </div>
+        </div>
+    </section>
+
+
+<!--Footer section-->
+<!--My footer ensure users can access to all important information on the first home page without having to check the whole web page-->
+    <footer>
+        <div class="footer-container"> <!--Wrap the footer content and links-->
+            <!--1st content: Contact information-->
+            <div class="footer-content"> 
+                <h3>Contact us</h3>
+                <div class="contactinfo">
+                <p><strong>Phone:</strong> 9847 6666</p> <!--use bold text for the title of each infor-->
+                <p><strong>Email:</strong> hsc@hornsby.nsw.gov.au</p>
+                <p>
+                    <strong>Open hours:</strong> <!--use bold text for the title of each infor-->
+                    <br> Monday to Friday: 8am – 5pm; 
+                    <br> Saturday and Sunday: 10am – 5pm
+                </p>
+                </div>
+            </div>
+            <!--2nd content: Quick nav links so they don't have to scroll up to the menu bar-->
+            <div class="footer-content">
+                <h3>Quick links</h3>
+                <!--Wrap nav links with different class name from the navigation bar as it has different styling (font)-->
+                <ul class="links-list">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="plan.html">Plan</a></li>
+                </ul>
+            </div>
+            <!--3rd content: External links to Guide book and Brochure for more detailed information-->
+            <div class="footer-content">
+                <h3>More information</h3>
+                <div class="more-info">
+                    <a href="https://www.hornsby.nsw.gov.au/__data/assets/pdf_file/0018/112455/Lisgar-Gardens-Brochure-REV_FA_WEB.pdf">View our brochure</a>
+                    <br>
+                    <a href="https://www.hornsby.nsw.gov.au/__data/assets/pdf_file/0003/271164/HSC7481-Lisgar-Gardens-Map.pdf">View our Guide map</a>
+                </div>   
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for toggling mobile menu, tutorial from: https://www.youtube.com/watch?v=5NEUGWSD-BE -->
+    <script>
+        //Selects the menu button and the navigation list
+        const navBtn = document.querySelector('.menu-btn');
+        const navList = document.querySelector('.nav-section');
+        // Toggles the 'active' class on the nav list when menu button is clicked
+        navBtn.addEventListener('click', function(){
+            navList.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

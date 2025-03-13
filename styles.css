@@ -1,0 +1,776 @@
+/* Set up color set for easier customisation*/
+:root {
+    --primary: #568366; /*primary color that will be used for most container elements*/
+    --darkgreen: #183425; /*dark green to use for container that need higher contrast, ensure basic accessibility*/
+    --secondary: #f3f6eb; /*mostly used for text's color on green background*/
+    --white: white; 
+}
+/*initial set up for all*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none; /* Remove underlines on links */
+    list-style: none;  /* Remove bullets from list items */
+}
+
+/*--Custom navigation bar--*/
+/*General set up of the bar: font type, background color*/
+nav {
+    background: var(--primary); /*set primary green color for the bar*/
+    height: 60px; /*the height of the navbar*/
+    font-family: "Oswald", sans-serif; /*set the font for text*/
+    z-index: 100; /*make sure the bar appear on top of other element*/
+    display: flex; /*ensures the layout is flexible and responsive.*/
+    align-items: center; /*center the item vertically*/
+    justify-content: space-between;  /* Spacing out logo on the left and nav links on the right */
+    padding: 0 50px; /*set the padding so text's elements have a gap with screen's edges*/
+ }
+ 
+/*Customize the Logo's Text with the font, size and color*/
+ .logo {
+    font-family: "Overlock", sans-serif;
+    color: var(--white);
+    font-size: 35px;
+ }
+ 
+/*Change the color of the logo's text to white to ensure the visibility and consistent of the whole page*/
+ .logo a {
+    color: var(--white);
+}
+.logo a:hover{
+    color: var(--primary);
+    transition: 0.3s; /*timing for smoother transition effect*/
+    background-color: var(--secondary); /*set the white color for the box*/
+    padding: 5px 10px; /* Padding for hover effect */
+    border-radius: 5px; /*set the border for the framing box*/
+}
+ 
+.nav-section {
+    display: flex; /*make the nav section flexible and responsive*/
+    gap: 60px; /*spacing between each navigation links */
+ }
+ 
+/* Navigated section item display */ 
+ .nav-section li {
+    display: inline-block;
+ }
+ 
+/*Style for navigation links*/
+ .nav-section a {
+    color: var(--secondary);
+    font-size: 20px;
+ }
+
+ /* Hover setup for the links: it will be framed with a white box and the link turned into green */
+ .nav-section a:hover { 
+    color: var(--primary); /*change the color's text from white to green*/
+    transition: 0.3s; /*timing for smoother transition effect*/
+    background-color: var(--secondary); /*set the white color for the box*/
+    padding: 5px 10px; /* Padding for hover effect */
+    border-radius: 5px; /*set the border for the framing box*/
+ }
+ /* Styling menu button for mobile screen */
+ .menu-btn{
+    /*set the position of the button*/
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none; /* Hidden by default screen and only shown on mobile*/
+    width: 30px; /*set the size of the menu button*/
+ }
+/* Hero section */
+.hero-content {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    /* Add the hero image and change the opacity of it a bit */
+    background: linear-gradient(rgba(60, 60, 40, 0.4), rgba(208, 240, 220, 0.5)), 
+                url("./images/lisgar-2.jpg"); 
+    background-size: cover; /* Ensure the image covers the entire area */
+    background-position: center; /* Center the image within the container */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    border-radius: 25px; /*Create borders for the image*/
+    padding: 10px 25px; /* Adjust padding for the text inside the hero section */
+    max-width: 95%; /* Ensure the image fits within the container and has white space around it - not covering the whole screen*/
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column; /*change the main axis to vertical axis*/
+    align-items: flex-start; /* Align items to the left (at the start of cross-axis*/
+    justify-content: center; /*align the texts on the middle left of the image*/
+    color: var(--white); /* Text color for readability */
+    text-align: left; 
+    font-family: "Overlock", sans-serif;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*add a bit of shadow to make it more visible on the image background*/
+}
+/*Change the size of intro text: "Welcome to"*/
+.Intro{
+    font-size: 40px;
+    margin-bottom: 10px; /*create the space with the below text*/
+}
+/*Change the size of main title text: "Lisgar Garden"*/
+.Title{
+    font-size: 80px;
+}
+/*Change the size of slogan text: "The nature's hidden gem..."*/
+.hero-text{
+    font-size: 30px;
+    margin-top: 20px;  /*create the space with the above text*/
+    font-weight: bold;
+
+}
+
+/* Responsive adjustments for the Home page*/
+ @media (max-width: 768px) {  /*for smaller screen such as tablet or large phone */
+    .menu-btn{
+        display: block; /* Display menu button on smaller screens */
+        z-index: 100; /*ensure it appears on top of other elements*/
+    }
+   
+    .nav-section {
+        display: block; /*creating a vertical layout of the nav links for smaller screens*/
+        margin-top: 10px;
+        flex-direction: column; /*change the link layout to stack vertically*/
+        height: auto;
+        background: var(--primary); /*set the background color of the navigation bar*/
+        position: absolute; /* Absolute positioning for dropdown */
+        top: 0;
+        right: -800px; /*hide off the screen initially*/
+        width: 70%; /*make the dropdown cover 70% percent of the screen*/
+        height: 40vh; /*set the height of the dropdown*/
+        padding-top: 50px; /*set the white space between the links and the menu button*/
+        text-align: left;
+        transition: all 0.3s ease; /*smoother transition effect*/
+        z-index: 99; /*make it appears on top of hero section but still below the menu button*/
+      
+    }
+    .nav-section.active{
+        right: 0; /* Display the dropdown menu on screen when active */
+    }
+    /*style the nav links*/
+    .nav-section li{
+        margin: 10px 0;
+        text-align: left;
+        width:100%;
+        padding: 10px 30px;
+    }
+ 
+    .hero-content {
+        height: 60vh; /* Reduce height for tablets */
+        /*align the content in the center, middle of the image instead of on the left*/
+        text-align: center; 
+        align-items: center;
+    }
+ }
+ 
+ 
+ @media (max-width: 480px) { /*for standard or smaller phone screen*/
+    .hero-content {
+        height: 50vh; /* Reduce height for mobile devices */
+    }
+    /*Change the text's size to fit in hero section on small screen*/
+    .Intro{
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .Title{
+        font-size: 40px;
+    }
+    .hero-text{
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+   
+    }
+ }
+ 
+
+ 
+/* Image Scrolling Gallery set up */
+/*style images*/
+.scroll-img{
+    position: relative;
+    display: flex; /* Flex layout to arrange images */
+    width: 100%;
+    overflow: hidden; /*hide overflow for smoother scrolling*/
+    background-color: var(--secondary); /*set the background frame's color*/
+    padding: 30px; /*create small space between images and frame*/
+
+}
+/* Gallery title styling */
+#Gallery h2{
+    font-size: 40px;
+    font-family: "Oswald", sans-serif;
+    text-decoration: underline;
+    color: var(--primary);
+    margin: 20px;
+    text-align: center;
+}
+
+/* Horizontal scrolling container styling */
+.image-list{
+    white-space: nowrap; /*prevent the image from wrapping*/
+    animation: animate var(--t) linear infinite; /*set the infinite scrolling animation*/
+}
+/*style each images in the scroll, unify all the images to one size*/
+.image-list img{
+    width: 300px;
+    height: 400px;
+    margin: 0 10px; /*set the space between each image*/
+}
+/* Keyframes for scroll animation */
+@keyframes animate
+{
+    /* Start on the screen immediately */
+    0%{
+        transform: translateX(0%);
+    }
+    /* End fully offscreen in opposite direction */
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+
+/*Customize About Us page*/
+#about {
+    padding: 50px; /*spacing around the about section*/
+    text-align: center; /*aligns heading text in the center*/
+}
+/*style the title of the section*/
+#about h1 {
+    font-size: 50px;
+    color: var(--primary);
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 40px;
+}
+
+/* Style the Container for About cards */
+.abt-content {
+    display: flex; /* Flex layout for aligning cards */
+    flex-direction: column; /*change the main axis to stack vertically*/
+    gap: 30px; /*space between each card*/
+    align-items: center; /*center align the card horizontally*/
+    max-width: 900px; /*ensure the card to stay in this width for better readability*/
+    margin: 0 auto;
+}
+
+/* Individual About card styling */
+.main-card {
+    background-color: var(--secondary); /*set the color of the card*/
+    border-radius: 10px; /*create border of each card to match the whole web's aesthetic*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*create card's shadow to differentiate it with the white background*/
+    display: flex; /* Flex layout to align image and text */
+    align-items: center; /*align the content (text, image) in the middle*/
+    padding: 20px; /* Inner padding for content spacing */
+    width: 100%; /*the card take full width of the set up container above*/
+    
+}
+
+/* Image styling inside the About cards */
+.abt-image {
+    width: 200px; /* Adjust image width */
+    height: 200px; /* Adjust image height */
+    border-radius: 8px;
+    object-fit: cover; /* Keeps image aspect ratio while filling space */
+    margin-right: 20px; /*space between the image and text on big screen*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Container around image for additional control: make sure all the images are same size */
+.image-container {
+    width: 50%; /* Adjusts the width of the image section */
+    overflow: hidden; /* Hides overflow for consistent layout */
+}
+.image-container img {
+    /* Image fills the container size */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    
+}
+
+/* Text content styling */
+.text-content {
+    flex-grow: 1; /*  make sure the texts fill available space */
+    text-align: left; /*left-aligned for the text within the card*/
+    font-family: "Overlock", sans-serif;
+}
+/*style the title of each card*/
+.text-content h3 {
+    font-size: 24px;
+    color: var(--darkgreen);
+    margin-bottom: 10px;
+    font-family: "Overlock", sans-serif;
+    
+}
+/*style the content text of each card*/
+.text-content p {
+    font-size: 16px;
+    color: var(--darkgreen);
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+/* Responsive Design for About Us page*/
+@media (max-width: 768px) {
+    .main-card {
+        flex-direction: column; /* Stack image and text vertically on smaller screens */
+        text-align: center; /* Center-align text for readability */
+    }
+
+    .abt-image {
+        margin-right: 0; /*remove the right margin from the big screen display so the image will stay above the text*/
+        margin-bottom: 15px; /*space between the image and the text below*/
+    }
+
+    .text-content {
+        text-align: center;
+    }
+}
+
+/*Style for Features Page*/
+/* Style for main title */
+.main-title h1{
+        font-size: 50px;
+        color: var(--primary);
+        font-weight: bold;
+        text-decoration: underline; /*create underline under the text*/
+        font-family: "Oswald", sans-serif;
+        margin: 0;
+        flex-shrink: 0; /* Prevents title from resizing even with smaller screen*/
+        display: flex;
+        justify-content: center; /* Center the text within flex container */
+        text-align: center;
+        padding-left: 50px;
+        padding: 50px; /*space around the main title, between the title and the cards*/
+}
+/*Container card for the features page*/
+.card-container{
+    display: flex; /* Flex layout to arrange cards */
+    justify-content: center;
+    flex-wrap: wrap; /*wrap the card in a new row if the screen size change*/
+}
+.exp-card{
+    width: 325px;  /* Fixed width for each card */
+    background-color: var(--secondary); /*set the color of the card*/
+    border-radius: 8px; /*round the corner to match the web's aesthetic*/
+    overflow: hidden; /* Clips content to prevent overflow */
+    margin: 20px; /*space between cards*/
+    flex-direction: column; /*arrange the content vertically*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Style images inside the Features cards*/
+.exp-card img{
+    width: 100%; /*images cover the full width of the card*/
+    height: auto; /*height auto adjustment*/
+}
+/*overall styling the content text of the image*/
+.card-content{
+    padding: 16px; /*inner padding for text inside the card*/
+    color: var(--darkgreen); /*set the dark color for the text to contrast with the background*/
+}
+/*set the size for the title of each card*/
+.card-content h3{
+    font-size: 28px;
+    margin-bottom: 14px;
+    font-family: "Overlock", sans-serif;
+    text-align: center;
+}
+/*set the size for the content of each card*/
+.card-content p{
+    color: var(--darkgreen);
+    font-size: 16px;
+    line-height: 1.3; /*line-spacing*/
+    font-family: "Overlock", sans-serif;
+}
+/*set the style for the external link in the card*/
+.card-content p a{
+    color: var(--primary);
+    /*make the link's text more noticeable than other normal text*/
+    text-decoration: underline;
+    font-weight: bold;
+}
+/* Hover effect for links in card content */
+.card-content p a:hover{
+    color: purple; /*color change from white to purple to notice user better*/
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Responsive Design for Features Page */
+/* Smaller screen adjustments for card layout */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Stack cards vertically on small screens */
+        max-width: 100%;
+    }
+}
+
+/*Style Activities page*/
+#activities {
+    background-color: var(--white); /*set the background color of the whole page*/
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /*stack the main content vertically*/
+    align-items: center;
+}
+/* Style the section with maximum width for readability */
+.section {
+    width: 100%;
+    max-width: 1200px; /*ensure all the content only in this length, still have space with screen's edges*/
+    margin-bottom: 40px; /*space between each sections and the footer for better aesthetic*/
+}
+/*Style the title text ("Activities", "Event") for each section*/
+.section h2 {
+    font-size: 50px;
+    text-align: center; /*Align the title in the center of the page*/
+    text-transform: uppercase; /*Capitalize the text*/
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 0 0 20px 10px;
+    font-family: "Oswald", sans-serif;
+    color: var(--primary); /*using primary green for the title, as the same for all other page's title*/
+}
+
+/* Card container for grid layout */
+.card-box {
+    display: flex;
+    gap: 20px; /*space between each card*/
+    flex-wrap: wrap; /*wrap the card in the new row in case of resizing the screen*/
+    color: var(--secondary)
+}
+/*Style for each card*/
+.card {
+    position: relative;
+    background: var(--darkgreen); /* Card background color */
+    border-radius: 15px; /*round the border of the card to match overall aesthetic*/
+    overflow: hidden;
+    /* each card take 48% to ensure 2 cards per row, if more than this it will become 1 card per row*/
+    width: 48%; 
+    max-width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*shadow for better highlight the card from the background*/
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+}
+/* Card Image with 16:9 aspect ratio */
+.card-image {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+/*style the images*/
+.card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*ensure the image cover the whole area*/
+}
+/*style the caption below the image*/
+.card-caption {
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Overlock", sans-serif;
+    font-weight: bold;
+}
+
+/* Style Overlay content*/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /*set semi-transparent effect to ensure the overlay text is visible on the image*/
+    display: flex;
+    /*align the content at the center of the image*/
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default, only appear when hovering*/
+    transition: opacity 0.2s ease; /*smoother transition*/
+}
+/* Overlay text styling */
+.overlay-text {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    line-height: 1.4; /*line spacing*/
+    max-width: 90%; /* Prevent text from overflowing */
+    overflow-wrap: break-word; /* Ensure long words break correctly */
+    font-family: "Overlock", sans-serif;
+}
+/*Hovering effect of external link in overlay text*/
+/*set the link to different color from other text, making it noticeable*/
+.overlay-text a{
+    color: yellow;
+    text-decoration: underline;
+    font-weight: bold;
+}
+/*ensure it noticeable by changing the color again when hovering on it*/
+.overlay-text a:hover{
+    color: greenyellow;
+    text-decoration: underline;
+    font-weight: bold;
+}
+/* Show overlay on card hover */
+.card:hover .overlay {
+    opacity: 1;/* Fully visible on hover */
+}
+
+
+/* Responsive Design for Activities page*/
+@media (max-width: 768px) {
+    .card-box {
+        flex-direction: column; /*stack the card vertically on small screen*/
+        gap: 20px;
+    }
+    .card {
+        width: 100%; /*ensure it fit the whole screen*/
+        max-width: 100%;
+    }
+    .overlay-text{
+        font-size: 15px; /*reduce the text's size to ensure all the content is visible*/
+    }
+}
+
+/*Style for Plan page */
+/* The style of the title text is similar for every page*/
+h2{
+    font-family: "Oswald", sans-serif;
+    color: var(--primary);
+    font-size: 50px;
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px
+}
+/* Planning Section styling */
+#planning{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 50px;
+    background-color: var(--secondary);
+    gap: 50px; /*space between the image and the text*/
+
+}
+/*overall style the content*/
+.guide-content{
+    max-width: 50%; /*avoid the text to overflow on the image's area*/
+    text-align: left; 
+}
+/*style the title of Guiding section*/
+.guide-content h3{
+    font-size: 45px;
+    font-family: "Overlock", sans-serif;
+    text-align: left;
+    color: var(--darkgreen);
+    margin-top: 20px;
+}
+/*style descriptive text of the Guiding section*/
+.guide-content p{
+    font-family: "Overlock", sans-serif;
+    text-align: left;
+    font-size: 25px;
+}
+/*style the guiding map image*/
+#planning img{
+    border-radius: 15px;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+    transition: 0.2s ease-in-out; /*smoother effect when hovering on it*/
+}
+/*zoom in transition when hovering on the image*/
+#planning img:hover{
+    transform: scale(1.02);
+    opacity: 1;
+}
+/*Accessibility Section styling*/
+#accessibility{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 50px;
+    margin-top: 50px;
+    background-color: var(--secondary);
+    gap: 50px;
+
+}
+/*overall styling of the content*/
+.access-content{
+    max-width: 100%;
+    text-align: left;
+    margin: 20px; /*space between the text and the area around*/
+}
+/*title of the section*/
+.access-content h3{
+    font-size: 45px;
+    font-family: "Overlock", sans-serif;
+    text-align: left;
+    color: var(--darkgreen);
+}
+/*mini title of each content inside. I already apply bold text in html.*/
+.access-content h4{
+    font-size: 25px;
+    font-family: "Overlock", sans-serif;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/*style the content for each mini title of the section*/
+.access-content p{
+    font-family: "Overlock", sans-serif;
+    text-align: left;
+    font-size: 25px;
+}
+/*style the parking map image the same with guiding image above*/
+#accessibility img{
+    border-radius: 15px;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+    transition: 0.2s ease-in-out;
+}
+#accessibility img:hover{
+    transform: scale(1.05);
+    opacity: 1;
+}
+/*Responsive adjustment for Plan page*/
+@media (max-width: 768px) {
+    #planning, #accessibility {
+        flex-direction: column; /* Stack the image and content vertically */
+        align-items: center;
+        padding: 20px;
+    }
+
+    #planning img, #accessibility img {
+        width: 100%; /* Make the image take the full width on mobile */
+        height: auto; /* Adjust height automatically */
+        margin: 0 0 20px 0; /* Add margin below the image */
+    }
+
+    .guide-content, .access-content {
+        max-width: 100%; /* Make the text content full width */
+        text-align: center; /* Center align text content on mobile */
+    }
+
+    .guide-content h3, .access-content h3 {
+        font-size: 35px; /* Smaller font size for headings on mobile */
+        margin-top: 10px;
+    }
+
+    .guide-content p, .access-content p, .access-content h4 {
+        font-size: 18px; /* Smaller font size for paragraphs on mobile */
+    }
+}
+
+
+/* Style Footer Section */
+footer {
+    background-color: var(--primary); /*set the footer section color to primary green to match the nav bar section*/
+    padding-top: 20px; /* Space above footer content */
+    font-size: 16px; /*font size for footer content*/
+    color: var(--white); /*text color of the content, contrast with the background*/
+    margin-top: 20px; /* Space above the footer section */
+}
+/*change the link's color to white to match the overall aesthetic, as I already make these link noticeable by creating the frame around each when hovering on it*/
+footer a {
+    color: var(--white); 
+}
+/* Container adjustment for footer only */
+.footer-container {
+    width: 1000px;
+    max-width: 100%; /* Responsive width */
+    padding: 20px; /* Inner padding for footer content */
+    margin: auto;
+    display: flex; /* Flex layout for horizontal arrangement */
+    justify-content: space-between; /*create even space between each column*/
+    gap: 10px; /*additional gap between each column*/
+}
+/*devide the footer width into 3 even column for 3 contents*/
+.footer-content {
+    width: 33%; /* Make each column take up one-third of the container */
+}
+/*style the title text for each information*/
+.footer-content h3 {
+    font-family: "Overlock", sans-serif;
+    font-size: 28px;  /* Larger font size for headings */
+    margin-bottom: 15px; /*space with the detailed content below*/
+    text-align: center;
+    text-decoration: underline;
+}
+/*style the detailed content of each*/
+.footer-content p {
+    width: 190px; /* Fixed width for better layout control */
+    margin: auto; /* Centers each paragraph */
+    padding: 7px;
+    font-family: "Overlock", sans-serif;
+}
+/* Footer links list container styling */
+.footer-content ul {
+    text-align: center; /* Center-aligns list items */
+}
+/* Quick links footer */
+.links-list {
+    padding: 0; /*remove default padding*/
+}
+/*style the links list*/
+.links-list li {
+    width: auto; /* Auto width to fit content */
+    text-align: center;
+    list-style-type: none; /* Removes bullet points */
+    padding: 7px; /*space around each link*/
+    font-family: "Overlock", sans-serif;
+}
+/* Styling for external links within the quick links list */
+.links-list li a {
+    display: block;
+    text-align: center;
+    padding: 5px 10px; /* Add padding inside buttons */
+    text-decoration: none;
+}
+/*create a frame around each link when hovering on it*/
+.links-list li a:hover {
+    color: var(--primary); /*change the text color to green, contrast with the white frame wrapping around*/
+    transition: 0.3s; /*smoother transition*/
+    background-color: var(--secondary);
+}
+
+/* More information footer */
+.more-info {
+    text-align: center;
+    padding: 0;
+    font-family: "Overlock", sans-serif;
+}
+/* Styling for the "More Information" section */
+/* style external links */
+.more-info a {
+    display: block; /* Block display for clickable area */
+    text-align: center;
+    padding: 5px 10px; /* Add padding inside buttons */
+    text-decoration: none; /*remove bullet points*/
+}
+/*style hovering effect, same with the Quick links*/
+.more-info a:hover {
+    color: var(--primary);
+    transition: 0.3s;
+    background-color: var(--secondary);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container{
+        flex-direction: column; /* Stack footer sections vertically */
+        text-align: left;
+        align-items: center;
+    }
+}
+

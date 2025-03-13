@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>About Us</title>
+   <link rel="stylesheet" href="styles.css">
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+    </style>
+</head>
+<body>
+    <section id="main-page">
+        <div class="container">
+            <nav class="navbar">
+                <label class='logo'>
+                    <a href="index.html">Lisgar Garden</a>
+                </label>
+                <ul class="nav-section">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="activities.html">Activities</a></li>
+                    <li><a href="plan.html">Plan</a></li>
+                </ul>
+                <img src="./images/menu icon.svg" alt="menu icon" class="menu-btn"/>
+            </nav>
+        </div>
+    </section>
+<!--Guiding section-->
+    <!--The title of the Plan page-->
+    <h2 class="plan-title">PLAN YOUR TRIP</h2>
+    <!-- Planning Section with Guide Map -->
+    <section id="planning">
+        <!--Wrap the Guide's content (text)-->
+        <div class="guide-content">
+            <!--Title and descriptive text of the section-->
+            <h3>Guide Map</h3>
+            <p>
+              Let us give you an overview look of Lisgar Garden so you won't get lost.
+            </p>
+        </div>
+        <!-- Image of the guide map, the image was put after the content to create the layout: left: text, right: image-->
+        <img src="./images/guidemap.png" alt="detailed map">
+    </section>
+    <!-- Accessibility Section with Parking map -->
+    <section id="accessibility">
+        <!-- Image showing parking areas or accessibility options -->
+        <!--I put the image of this section before the text to create opposite layout with the Guiding section (left: image, right: text)-->
+        <img src="./images/parking guide.png" alt="parking map">
+        <!--Wrap the Accessibility's content (text)-->
+        <div class="access-content">
+            <!--Title text of the section-->
+            <h3>Accessibility Consideration</h3>
+            <div class="Accessibility">
+            <!-- Information about parking options -->
+              <h4>Parking</h4>
+              <p>There is limited parking at Lisgar Road. Free parking is available at the William Street (behind Odeon Cinema) carpark. It is a 10 minute walk down to Lisgar Gardens from the car park.</p>
+            <!-- Information on accessing Lisgar Gardens by train --> 
+              <h4>Train</h4>
+              <p>The entrance to Lisgar Gardens is 15 minutes walk (1300m) from Hornsby Station. At the station, take the exit on the right towards Hornsby West Side. You will see the community shuttle bus in the carpark once you walk into William street.</p>
+            <!-- Important notice for visitors about current conditions --> 
+              <h4>Notice</h4>
+              <p>
+                The inclinator is currently not working.
+                <br>This is also not a great place for wheelchairs or prams as there are lots of stairs, keep an eye on the little ones near the fishponds and terraced walls.
+              </p>
+            </div>
+        </div>
+    </section>
+
+<!--Footer section-->
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <h3>Contact us</h3>
+            <p><strong>Phone:</strong> 9847 6666</p>
+            <p><strong>Email:</strong> hsc@hornsby.nsw.gov.au</p>
+            <p>
+                <strong>Open hours:</strong> 
+                <br> Monday to Friday: 8am – 5pm; 
+                <br> Saturday and Sunday: 10am – 5pm
+            </p>
+        </div>
+        <div class="footer-content">
+            <h3>Quick links</h3>
+            <ul class="links-list">
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="plan.html">Plan</a></li>
+            </ul>
+        </div>
+        <div class="footer-content">
+            <h3>More information</h3>
+            <div class="more-info">
+                <a href="https://www.hornsby.nsw.gov.au/__data/assets/pdf_file/0018/112455/Lisgar-Gardens-Brochure-REV_FA_WEB.pdf">View our brochure</a>
+                <br>
+                <a href="https://www.hornsby.nsw.gov.au/__data/assets/pdf_file/0003/271164/HSC7481-Lisgar-Gardens-Map.pdf">View our Guide map</a>
+            </div>   
+        </div>
+    </div>
+    <script>
+        const navBtn = document.querySelector('.menu-btn');
+        const navList = document.querySelector('.nav-section');
+        navBtn.addEventListener('click', function(){
+            navList.classList.toggle('active');
+        });
+    </script>
+</footer>
+
+        
